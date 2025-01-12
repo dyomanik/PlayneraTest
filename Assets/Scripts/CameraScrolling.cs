@@ -1,4 +1,4 @@
-using UnityEngine;
+п»їusing UnityEngine;
 
 public class CameraScrolling : MonoBehaviour
 {
@@ -15,19 +15,19 @@ public class CameraScrolling : MonoBehaviour
         var mousePosition = Input.mousePosition;
         _moveDirection = Vector2.zero;
 
-        // Проверяем, находится ли курсор у краев экрана
+        // РџСЂРѕРІРµСЂСЏРµРј, РЅР°С…РѕРґРёС‚СЃСЏ Р»Рё РєСѓСЂСЃРѕСЂ Сѓ РєСЂР°РµРІ СЌРєСЂР°РЅР°
         if (mousePosition.x < Screen.width * edgeThreshold)
         {
-            _moveDirection.x = -1; // Двигаем камеру влево
+            _moveDirection.x = -1; // Р”РІРёРіР°РµРј РєР°РјРµСЂСѓ РІР»РµРІРѕ
         }
         else if (mousePosition.x > Screen.width * (1 - edgeThreshold))
         {
-            _moveDirection.x = 1; // Двигаем камеру вправо
+            _moveDirection.x = 1; // Р”РІРёРіР°РµРј РєР°РјРµСЂСѓ РІРїСЂР°РІРѕ
         }
 
         var newPosition = transform.position + (Vector3)_moveDirection * scrollSpeed * Time.deltaTime;
 
-        // Ограничиваем позицию камеры в пределах сцены границ
+        // РћРіСЂР°РЅРёС‡РёРІР°РµРј РїРѕР·РёС†РёСЋ РєР°РјРµСЂС‹ РІ РїСЂРµРґРµР»Р°С… СЃС†РµРЅС‹ РіСЂР°РЅРёС†
         newPosition.x = Mathf.Clamp(newPosition.x, cameraBoundsMin.x, cameraBoundsMax.x);
         newPosition.y = Mathf.Clamp(newPosition.y, cameraBoundsMin.y, cameraBoundsMax.y);
 

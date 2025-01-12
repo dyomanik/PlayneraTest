@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D), typeof(SpriteRenderer))]
 public class DragAndDrop : MonoBehaviour
@@ -17,7 +17,7 @@ public class DragAndDrop : MonoBehaviour
         _collider = GetComponent<Collider2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         
-        //Âû÷èñëåíèå ðàäèóñà â çàâèñèìîñòè îò ðàçìåðà êîëëàéäåðà
+        //Ð’Ñ‹Ñ‡Ð¸ÑÐ»ÐµÐ½Ð¸Ðµ Ñ€Ð°Ð´Ð¸ÑƒÑÐ° Ð² Ð·Ð°Ð²Ð¸ÑÐ¸Ð¼Ð¾ÑÑ‚Ð¸ Ð¾Ñ‚ Ñ€Ð°Ð·Ð¼ÐµÑ€Ð° ÐºÐ¾Ð»Ð»Ð°Ð¹Ð´ÐµÑ€Ð°
         _overlapRadius = transform.localScale.x * _collider.bounds.size.x/2; 
     }
 
@@ -35,14 +35,14 @@ public class DragAndDrop : MonoBehaviour
         _isDragging = true;
         _rigidbody.bodyType = RigidbodyType2D.Kinematic;
         
-        //Ïåðåìåùåíèå íà ïåðåäíèé ïëàí 
+        //ÐŸÐµÑ€ÐµÐ¼ÐµÑ‰ÐµÐ½Ð¸Ðµ Ð½Ð° Ð¿ÐµÑ€ÐµÐ´Ð½Ð¸Ð¹ Ð¿Ð»Ð°Ð½ 
         _spriteRenderer.sortingOrder = 1; 
     }
 
     void OnMouseUp()
     {
         _isDragging = false;
-        //Ïåðåìåùåíèå íà âòîðîé ïëàí 
+        //ÐŸÐµÑ€ÐµÐ¼ÐµÑ‰ÐµÐ½Ð¸Ðµ Ð½Ð° Ð²Ñ‚Ð¾Ñ€Ð¾Ð¹ Ð¿Ð»Ð°Ð½ 
         _spriteRenderer.sortingOrder = 0;
         _rigidbody.bodyType = RigidbodyType2D.Dynamic;
 
@@ -51,7 +51,7 @@ public class DragAndDrop : MonoBehaviour
 
     private void CheckForSurface()
     {
-        // Ïðîâåðÿåì, ïåðåñåêàåòñÿ ëè êîëëàéäåð îáúåêòà ñ êîëëàéäåðîì ïîâåðõíîñòè
+        // ÐŸÑ€Ð¾Ð²ÐµÑ€ÑÐµÐ¼, Ð¿ÐµÑ€ÐµÑÐµÐºÐ°ÐµÑ‚ÑÑ Ð»Ð¸ ÐºÐ¾Ð»Ð»Ð°Ð¹Ð´ÐµÑ€ Ð¾Ð±ÑŠÐµÐºÑ‚Ð° Ñ ÐºÐ¾Ð»Ð»Ð°Ð¹Ð´ÐµÑ€Ð¾Ð¼ Ð¿Ð¾Ð²ÐµÑ€Ñ…Ð½Ð¾ÑÑ‚Ð¸
         Collider2D[] overlappingColliders = Physics2D.OverlapCircleAll(transform.position, _overlapRadius, standSurfaceLayer);
 
         if (overlappingColliders.Length > 0)
